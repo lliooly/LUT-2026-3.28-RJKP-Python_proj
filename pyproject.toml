@@ -1,0 +1,14 @@
+[project]
+name = "python-practice-exercises"
+version = "0.1.0"
+description = "Python practice tasks with a uv-managed launcher."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+full = [
+    "jieba>=0.42.1",
+    "matplotlib>=3.8.0",
+    "networkx>=3.2.1",
+]

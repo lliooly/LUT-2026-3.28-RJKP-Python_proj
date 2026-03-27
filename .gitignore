@@ -1,0 +1,4 @@
+/.venv/
+/.uv-cache/
+/.pycache/
+**/__pycache__/
