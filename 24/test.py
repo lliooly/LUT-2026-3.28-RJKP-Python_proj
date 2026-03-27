@@ -22,7 +22,7 @@ class TestTask24(unittest.TestCase):
                 self.assertIn("关系图已保存到：relationship_graph.png", result.stdout)
                 self.assertTrue(output_file.exists())
             else:
-                self.assertIn("请先安装networkx和matplotlib库", result.stdout)
+                self.assertIn("uv sync --extra full", result.stdout)
         finally:
             if output_file.exists():
                 output_file.unlink()

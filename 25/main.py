@@ -4,7 +4,7 @@ try:
     import jieba
     import jieba.posseg as pseg
 except ModuleNotFoundError:
-    print("请先安装jieba库，例如：pip3 install jieba")
+    print("请先启用 full 可选依赖，例如：uv sync --extra full")
     sys.exit(0)
 
 s = "外观很好，画质也不错。但是音质真的太糟糕了！操作也不方便。"
@@ -26,6 +26,20 @@ for word, flag in filtered_words:
 words = list(jieba.lcut(s))
 sentiment_score = 0
 
+
+def get_modifier(current_index):
+    multiplier = 1
+    sign = 1
+
+    for prev_word in words[max(0, current_index - 2):current_index]:
+        if prev_word in degree_dict:
+            multiplier *= degree_dict[prev_word]
+        if prev_word in negation_words:
+            sign *= -1
+
+    return sign * multiplier
+
+
 for index, word in enumerate(words):
     base_score = 0
 
@@ -33,14 +47,9 @@ for index, word in enumerate(words):
         base_score = positive_words[word]
     elif word in negative_words:
         base_score = negative_words[word]
-    elif word == "方便" and index > 0 and words[index - 1] in negation_words:
-        base_score = -1
 
     if base_score != 0:
-        multiplier = 1
-        if index > 0 and words[index - 1] in degree_dict:
-            multiplier = degree_dict[words[index - 1]]
-        sentiment_score += base_score * multiplier
+        sentiment_score += base_score * get_modifier(index)
 
 print(f"情感分为：{sentiment_score}")
 if sentiment_score > 0:

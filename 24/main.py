@@ -1,13 +1,18 @@
 from collections import Counter
 from itertools import combinations
 from pathlib import Path
+import os
 import sys
 
+os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".matplotlib"))
+
 try:
+    import matplotlib
+    matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import networkx as nx
 except ModuleNotFoundError:
-    print("请先安装networkx和matplotlib库，例如：pip3 install networkx matplotlib")
+    print("请先启用 full 可选依赖，例如：uv sync --extra full")
     sys.exit(0)
 
 s = (

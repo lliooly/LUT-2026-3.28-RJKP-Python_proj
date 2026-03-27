@@ -15,7 +15,7 @@ class TestTask25(unittest.TestCase):
             self.assertIn("形容词、副词和连词提取结果：", result.stdout)
             self.assertIn("该评论为消极情感。", result.stdout)
         else:
-            self.assertIn("请先安装jieba库", result.stdout)
+            self.assertIn("uv sync --extra full", result.stdout)
 
 
 if __name__ == "__main__":
