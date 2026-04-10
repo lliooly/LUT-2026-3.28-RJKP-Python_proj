@@ -11,4 +11,9 @@ full = [
     "jieba>=0.42.1",
     "matplotlib>=3.8.0",
     "networkx>=3.2.1",
+    "numpy>=1.26.0",
+    "openpyxl>=3.1.2",
+    "pandas>=2.2.0",
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.3",
 ]
