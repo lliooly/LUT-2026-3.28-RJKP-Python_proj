@@ -1,6 +1,6 @@
 # Python 上机练习题项目
 
-按题号 `1` 到 `25` 组织的 Python 练习题集合，内置统一启动入口、单题测试和 `uv` 工作流。
+按题号 `1` 到 `35` 组织的 Python 练习题集合，内置统一启动入口、单题测试和 `uv` 工作流。
 
 > [!WARNING]
 > 如果发现运行异常、结果错误或文档问题，请及时提交 Issue。
@@ -24,6 +24,7 @@ uv run main.py 7
 uv sync --extra full
 uv run --extra full main.py 24
 uv run --extra full main.py 25
+uv run --extra full main.py 35
 ```
 
 ## Installation
@@ -36,7 +37,7 @@ uv run --extra full main.py 25
 
 - `main.py`：根目录统一启动入口，支持交互选题和命令行指定题号。
 - `launcher.py`：启动逻辑实现文件。
-- `1/` 到 `25/`：每道题的独立目录。
+- `1/` 到 `35/`：每道题的独立目录。
 - `各题目录中的 main.py`：该题的参考实现。
 - `各题目录中的 test.py`：该题的基础测试用例。
 - `test_utils.py`：测试辅助文件。
@@ -54,6 +55,13 @@ uv run --extra full main.py 25
 - `21/zen1.txt`
 - `22/yzy2.txt`
 - `24/relationship_graph.png`
+- `31/cost_product.csv`
+- `31/production_analysis.png`
+- `32/polynomial_plot.png`
+- `33/studentscore.xlsx`
+- `33/studentscore.csv`
+- `33/studentscore_boxplot.png`
+- `35/wa.txt`
 
 ## Usage
 
@@ -86,12 +94,12 @@ uv run python 7/test.py
 批量运行全部测试：
 
 ```bash
-for i in {1..25}; do uv run python "$i/test.py"; done
+for i in {1..35}; do uv run python "$i/test.py"; done
 ```
 
 ## Dependency Management
 
-需要运行第 `24` / `25` 题时，启用项目中声明好的 `full` 可选依赖：
+需要运行第 `24` / `25` / `29` / `31` / `32` / `33` / `34` / `35` 题时，启用项目中声明好的 `full` 可选依赖：
 
 ```bash
 uv sync --extra full
@@ -102,7 +110,7 @@ uv sync --extra full
 例如，把依赖加入 `full` extra：
 
 ```bash
-uv add --optional full networkx matplotlib jieba
+uv add --optional full networkx matplotlib jieba numpy pandas openpyxl requests beautifulsoup4
 ```
 
 ## Notes
