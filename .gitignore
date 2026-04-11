@@ -2,3 +2,7 @@
 /.uv-cache/
 /.pycache/
 **/__pycache__/
+**/.matplotlib/
+26/output/
+27/output/
+28/output/

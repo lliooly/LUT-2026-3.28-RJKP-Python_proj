@@ -44,9 +44,9 @@ def run_task(task_number):
 
 def print_help(tasks):
     print("用法：")
-    print("  uv run python launcher.py")
-    print("  uv run python launcher.py <题号>")
-    print("  uv run python launcher.py --list")
+    print("  uv run main.py")
+    print("  uv run main.py <题号>")
+    print("  uv run main.py --list")
     print()
     print_task_list(tasks)
 
@@ -77,7 +77,7 @@ def main():
             return 1
         return run_task(task_number)
 
-    print("Python 练习题启动器")
+    print("Python 作业启动器")
     print_task_list(tasks)
     task_number = prompt_for_task(tasks)
     if task_number is None:
